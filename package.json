@@ -1,0 +1,22 @@
+{
+  "name": "paced-assessment-tool",
+  "version": "1.0.0",
+  "description": "People & Culture team maturity assessment tool",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8000",
+    "serve": "npx serve . -p 8000"
+  },
+  "keywords": [
+    "hr",
+    "assessment",
+    "people-culture",
+    "maturity",
+    "evaluation"
+  ],
+  "author": "PACED - People and Culture Education",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
