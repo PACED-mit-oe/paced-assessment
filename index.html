@@ -113,187 +113,6 @@
             transform: scale(1.1);
         }
 
-        /* Widget content styles */
-        .paced-widget-content {
-            font-family: inherit;
-            line-height: 1.5;
-        }
-
-        .paced-widget-content h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #1e293b;
-        }
-
-        .paced-widget-content p {
-            color: #64748b;
-            margin-bottom: 20px;
-        }
-
-        .paced-widget-content label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #374151;
-        }
-
-        .paced-widget-content select,
-        .paced-widget-content textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .paced-widget-content select:focus,
-        .paced-widget-content textarea:focus {
-            outline: none;
-            border-color: #6366f1;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .paced-widget-content textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .paced-widget-content input[type="range"] {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 4px;
-            cursor: pointer;
-            padding: 0;
-            border: none;
-            outline: none;
-        }
-
-        /* Rating buttons */
-        .paced-rating-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #d1d5db;
-            background: white;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            color: #374151;
-        }
-
-        .paced-rating-btn:hover {
-            border-color: #6366f1;
-            transform: scale(1.05);
-        }
-
-        .paced-rating-btn.selected {
-            background: #6366f1;
-            border-color: #6366f1;
-            color: white;
-        }
-
-        /* Navigation buttons */
-        .paced-nav-btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-        }
-
-        .paced-nav-btn.primary {
-            background: #6366f1;
-            color: white;
-        }
-
-        .paced-nav-btn.primary:hover {
-            background: #4f46e5;
-        }
-
-        .paced-nav-btn.secondary {
-            background: #f3f4f6;
-            color: #374151;
-        }
-
-        .paced-nav-btn.secondary:hover {
-            background: #e5e7eb;
-        }
-
-        .paced-nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Priority cards */
-        .paced-priority-card {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .paced-priority-card:hover {
-            border-color: #6366f1;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
-        }
-
-        .paced-priority-card h3 {
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #1e293b;
-            font-size: 1.1rem;
-        }
-
-        .paced-priority-card p {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        /* Results cards */
-        .paced-result-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .paced-result-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .paced-result-card .score {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 8px;
-            color: white;
-        }
-
-        .paced-result-card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            color: white;
-        }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -314,10 +133,6 @@
             
             #paced-assessment-container {
                 padding: 10px;
-            }
-            
-            .paced-widget-content h2 {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -351,6 +166,173 @@
     </div>
 
     <script>
+        // PACED Assessment Data
+        const strategicPriorities = [
+            {
+                key: 'mindset',
+                title: 'People & Culture Mindset',
+                description: 'Welchen Stellenwert hat es, HR als strategischen Business-Partner zu positionieren und ein zukunftsorientiertes, vernetztes Mindset im Team zu etablieren?'
+            },
+            {
+                key: 'business_acumen',
+                title: 'Business Acumen',
+                description: 'Welchen Stellenwert hat es, externe Markt- und Geschäftsfaktoren zu verstehen und People-Themen gezielt mit den Unternehmenszielen zu verknüpfen?'
+            },
+            {
+                key: 'employee_lifecycle',
+                title: 'Employee Lifecycle / Experience Design',
+                description: 'Welchen Stellenwert hat es, die Employee Experience entlang des gesamten Mitarbeiter-Lebenszyklus systematisch zu gestalten und zu optimieren?'
+            },
+            {
+                key: 'digital_management',
+                title: 'Digital Product-, Project- & Process Management',
+                description: 'Welchen Stellenwert hat es, HR-Prozesse und -Projekte professionell zu steuern und digitale Tools sowie Produkt-Logiken konsequent einzusetzen?'
+            },
+            {
+                key: 'data_analytics',
+                title: 'Data & Analytics Literacy',
+                description: 'Welchen Stellenwert hat es, People-Entscheidungen datenbasiert zu treffen und Erkenntnisse aus HR-Daten aktiv für strategische Entscheidungen zu nutzen?'
+            },
+            {
+                key: 'people_strategy',
+                title: 'People Strategy & Operating Model',
+                description: 'Welchen Stellenwert hat es, eine klar definierte People-Strategie und ein zukunftsorientiertes HR Operating Model zu entwickeln und umzusetzen?'
+            },
+            {
+                key: 'facilitation_coaching',
+                title: 'Facilitation & Coaching',
+                description: 'Welchen Stellenwert hat es, durch starke Moderations-, Workshop- und Coaching-Fähigkeiten Einfluss auf Führungskräfte und Teams zu nehmen?'
+            },
+            {
+                key: 'ai_tech',
+                title: 'AI & Tech',
+                description: 'Welchen Stellenwert hat es, KI und moderne HR-Tech-Tools zu verstehen und aktiv in den HR-Alltag zu integrieren?'
+            },
+            {
+                key: 'performance_management',
+                title: 'Performance & Experience Management',
+                description: 'Welchen Stellenwert hat es, klare Performance-Systeme, kontinuierliches Feedback und wirkungsvolle Recognition-Programme zu etablieren?'
+            },
+            {
+                key: 'organisational_design',
+                title: 'Organisational Design',
+                description: 'Welchen Stellenwert hat es, Organisationsstrukturen und Rollen zukunftsorientiert zu gestalten und Transformationen erfolgreich zu steuern?'
+            },
+            {
+                key: 'new_work',
+                title: 'New Work Design',
+                description: 'Welchen Stellenwert hat es, flexible Arbeitsmodelle, neue Führungsansätze und Mitarbeiter:innenbeteiligung an New Work-Initiativen voranzutreiben?'
+            },
+            {
+                key: 'offboarding_conflicts',
+                title: 'Offboarding, Conflicts & Crisis',
+                description: 'Welchen Stellenwert hat es, Konflikte professionell zu lösen, Krisen zu steuern und Offboarding-Prozesse positiv zu gestalten?'
+            },
+            {
+                key: 'culture_development',
+                title: 'Culture Development',
+                description: 'Welchen Stellenwert hat es, Unternehmenskultur messbar zu machen, gezielt zu entwickeln und intern erlebbar zu kommunizieren?'
+            },
+            {
+                key: 'talent_attraction',
+                title: 'Talent Attraction & Employer Branding',
+                description: 'Welchen Stellenwert hat es, eine starke Arbeitgebermarke zu positionieren und Talente durch zielgerichtetes People & Culture Marketing zu gewinnen?'
+            },
+            {
+                key: 'talent_acquisition',
+                title: 'Talent Acquisition, Recruiting & Onboarding',
+                description: 'Welchen Stellenwert hat es, Recruiting-Prozesse effektiv, fair und digital zu gestalten und ein starkes Onboarding-Erlebnis sicherzustellen?'
+            },
+            {
+                key: 'skill_management',
+                title: 'Skill & Learning Management',
+                description: 'Welchen Stellenwert hat es, Skill-Gaps im Unternehmen zu identifizieren und kontinuierliche Lern- und Entwicklungspfade bereitzustellen?'
+            }
+        ];
+
+        const maturityQuestions = {
+            mindset: [
+                'Das People & Culture Team versteht seine moderne Rolle als strategischer Partner und Business Enabler.',
+                'Das People & Culture Team zeigt eine hohe Change-Bereitschaft und fördert aktiv Anpassungsfähigkeit.',
+                'Das People & Culture Team sorgt für Team-Verbindung und Alignment innerhalb des HR-Bereichs.'
+            ],
+            business_acumen: [
+                'Das People & Culture Team versteht, wie externe Faktoren (Wettbewerb, Branchentrends, Kundenverhalten) Geschäftsprioritäten und die HR-Strategie beeinflussen.',
+                'Das People & Culture Team übersetzt Unternehmensziele in HR-relevante Maßnahmen.',
+                'Das People & Culture Team kann den geschäftlichen Mehrwert seiner Arbeit überzeugend darstellen.'
+            ],
+            employee_lifecycle: [
+                'Das People & Culture Team hat ein Grundverständnis von Employee Experience und Employee Lifecycle.',
+                'Das People & Culture Team analysiert, mappt und misst relevante Touchpoints.',
+                'Das People & Culture Team gestaltet und entwickelt „Moments that Matter" innovativ.'
+            ],
+            digital_management: [
+                'Das People & Culture Team steuert Projekte effektiv, inkl. Rollout & Activation.',
+                'Das People & Culture Team nutzt eine klare Produkt- und Product-Owner-Logik in HR.',
+                'Das People & Culture Team analysiert und managt HR-Prozesse für das Tagesgeschäft kontinuierlich.'
+            ],
+            data_analytics: [
+                'Das People & Culture Team versteht relevante HR-Daten und Kennzahlen.',
+                'Das People & Culture Team nutzt datengetriebene Methoden für Entscheidungen und HR-Arbeit.',
+                'Das People & Culture Team nutzt Daten storytelling-orientiert in HR-Projekten.'
+            ],
+            people_strategy: [
+                'Das People & Culture Team ist in der Lage, eine klare People & Culture Strategie zu entwickeln, die mit der Unternehmensstrategie abgestimmt ist.',
+                'Das People & Culture Team hat ein klares, zukunftsorientiertes HR Operating Model und gestaltet auf dieser Grundlage Rollen und Arbeitsweisen.',
+                'Das People & Culture Team aktiviert und verankert People-Strategien durch Kommunikation, Routinen, Stakeholder-Engagement und Umsetzung.'
+            ],
+            facilitation_coaching: [
+                'Das People & Culture Team führt exzellente Meetings durch.',
+                'Das People & Culture Team bereitet Workshops erlebnisorientiert und methodisch zielführend vor und führt sie durch.',
+                'Das People & Culture Team führt Coaching- und 1:1-Gespräche sicher.'
+            ],
+            ai_tech: [
+                'Das People & Culture Team versteht die Potenziale von KI & Automatisierung für HR.',
+                'Das People & Culture Team wählt und implementiert HR-Tech-Tools effektiv.',
+                'Das People & Culture Team nutzt KI (z. B. Prompting, Use-Cases) in der täglichen Arbeit.'
+            ],
+            performance_management: [
+                'Das People & Culture Team setzt klare Zielsysteme (z. B. OKRs) für HR und unterstützt deren Umsetzung.',
+                'Das People & Culture Team gestaltet Performance-Feedback-Prozesse wirksam.',
+                'Das People & Culture Team entwickelt Recognition- & Reward-Programme.'
+            ],
+            organisational_design: [
+                'Das People & Culture Team entwickelt Rollen- und Strukturarchitekturen.',
+                'Das People & Culture Team plant den Workforce-Bedarf vorausschauend.',
+                'Das People & Culture Team managt Change & Transformation (Prozesse, Rollen, Kommunikation).'
+            ],
+            new_work: [
+                'Das People & Culture Team gestaltet flexible Arbeitsmodelle.',
+                'Das People & Culture Team entwickelt neue Führungsmodelle.',
+                'Das People & Culture Team bindet Mitarbeitende aktiv in New Work-Initiativen ein.'
+            ],
+            offboarding_conflicts: [
+                'Das People & Culture Team gestaltet effektive Offboarding-Prozesse und Alumni-Management.',
+                'Das People & Culture Team löst Konflikte, inkl. Mediation.',
+                'Das People & Culture Team steuert Krisenkommunikation und entwickelt Resilienzprogramme.'
+            ],
+            culture_development: [
+                'Das People & Culture Team misst und analysiert Unternehmenskultur.',
+                'Das People & Culture Team entwickelt Kulturprogramme (z. B. Inclusion, Values).',
+                'Das People & Culture Team setzt wirkungsvolle Kulturformate und interne Kommunikation um.'
+            ],
+            talent_attraction: [
+                'Das People & Culture Team entwickelt eine klare Employer Value Proposition.',
+                'Das People & Culture Team betreibt People & Culture Marketing (relevante Botschaften, visuelle Identität, Kampagnen).'
+            ],
+            talent_acquisition: [
+                'Das People & Culture Team gestaltet Recruiting-Prozesse effizient, inklusiv und candidate-centric.',
+                'Das People & Culture Team entwickelt und implementiert digitale und soziale Recruiting-Strategien.',
+                'Das People & Culture Team nutzt strukturierte, faire Auswahlmethoden.',
+                'Das People & Culture Team gestaltet Onboarding-Prozesse, die Klarheit, Integration und Engagement fördern.'
+            ],
+            skill_management: [
+                'Das People & Culture Team führt Skill-Mapping & Gap-Analysen durch.',
+                'Das People & Culture Team entwickelt Lernpfade und Development Journeys.',
+                'Das People & Culture Team wählt und nutzt Learning Tech (LMS etc.) effektiv.'
+            ]
+        };
+
         // PACED Assessment Modal Widget
         document.addEventListener('DOMContentLoaded', function() {
             const openBtn = document.getElementById('open-assessment');
@@ -360,7 +342,16 @@
             
             let currentStep = 1;
             let isInitialized = false;
-            let formData = {};
+            let formData = {
+                companySize: '',
+                industry: '',
+                teamSize: '',
+                teamMission: '',
+                teamStructure: '',
+                repetitiveWork: 50,
+                priorities: {},
+                maturity: {}
+            };
             
             // Open modal
             openBtn.addEventListener('click', function() {
@@ -431,11 +422,11 @@
                                 <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Unternehmensgröße</label>
                                 <select id="companySize" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
                                     <option value="">Bitte wählen...</option>
-                                    <option value="<50">&lt;50</option>
+                                    <option value="<50"><50</option>
                                     <option value="50–249">50–249</option>
                                     <option value="250–999">250–999</option>
                                     <option value="1.000–4.999">1.000–4.999</option>
-                                    <option value=">5.000 MA">&gt;5.000 MA</option>
+                                    <option value=">5.000 MA">>5.000 MA</option>
                                 </select>
                             </div>
                             
@@ -447,7 +438,21 @@
                                     <option value="Finanzdienstleistungen">Finanzdienstleistungen</option>
                                     <option value="Gesundheitswesen">Gesundheitswesen</option>
                                     <option value="Automotive">Automotive</option>
+                                    <option value="Einzelhandel">Einzelhandel</option>
+                                    <option value="Fertigung">Fertigung</option>
                                     <option value="Beratung">Beratung</option>
+                                    <option value="Medien & Marketing">Medien & Marketing</option>
+                                    <option value="Energie & Umwelt">Energie & Umwelt</option>
+                                    <option value="Bildung & Forschung">Bildung & Forschung</option>
+                                    <option value="Logistik & Transport">Logistik & Transport</option>
+                                    <option value="Immobilien & Bau">Immobilien & Bau</option>
+                                    <option value="Telekommunikation">Telekommunikation</option>
+                                    <option value="Pharma & Biotechnologie">Pharma & Biotechnologie</option>
+                                    <option value="Lebensmittel & Getränke">Lebensmittel & Getränke</option>
+                                    <option value="Mode & Lifestyle">Mode & Lifestyle</option>
+                                    <option value="Gaming & Entertainment">Gaming & Entertainment</option>
+                                    <option value="Non-Profit & NGO">Non-Profit & NGO</option>
+                                    <option value="Öffentlicher Sektor">Öffentlicher Sektor</option>
                                     <option value="Andere">Andere</option>
                                 </select>
                             </div>
@@ -461,249 +466,344 @@
                                 <option value="6–10">6–10</option>
                                 <option value="11–20">11–20</option>
                                 <option value="21–50">21–50</option>
-                                <option value=">50">&gt;50</option>
+                                <option value=">50">>50</option>
                             </select>
                         </div>
                         
                         <div style="margin-bottom: 25px;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Mission eures People & Culture Teams</label>
-                            <textarea id="teamMission" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; height: 100px; resize: vertical; box-sizing: border-box;" placeholder="z.B. Wir verstehen uns als strategischer Partner für das Business..."></textarea>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Beschreibe das Selbstverständnis / die Mission deines People & Culture Teams</label>
+                            <textarea id="teamMission" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; height: 100px; resize: vertical; box-sizing: border-box;" placeholder="z.B. Wir verstehen uns als strategischer Partner für das Business und gestalten eine zukunftsorientierte Arbeitskultur..."></textarea>
                         </div>
                         
                         <div style="margin-bottom: 25px;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Operating Model / Struktur eures People & Culture Teams</label>
-                            <textarea id="teamStructure" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; height: 100px; resize: vertical; box-sizing: border-box;" placeholder="z.B. Wir arbeiten in einem hybriden Modell mit dedizierten Business Partnern..."></textarea>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Beschreibe das Operating Model / Die Struktur deines People & Culture Teams</label>
+                            <textarea id="teamStructure" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; height: 100px; resize: vertical; box-sizing: border-box;" placeholder="z.B. Wir arbeiten in einem hybriden Modell mit dedizierten Business Partnern und einem zentralen Operations-Team..."></textarea>
                         </div>
                         
                         <div style="margin-bottom: 25px;">
-                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Anteil operativer Tätigkeiten: <span id="slider-value">50</span>%</label>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Anteil wiederkehrender / operativer Tätigkeiten: <span id="slider-value">50</span>%</label>
                             <input type="range" min="0" max="100" value="50" style="width: 100%; height: 8px; background: #e5e7eb; border-radius: 4px; cursor: pointer;" onchange="document.getElementById('slider-value').textContent = this.value; formData.repetitiveWork = this.value;">
+                            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #6b7280; margin-top: 5px;">
+                                <span>0%</span>
+                                <span>50%</span>
+                                <span>100%</span>
+                            </div>
                         </div>
                     `;
                 } else if (currentStep === 2) {
-                    return `
+                    let html = `
                         <div style="text-align: center; margin-bottom: 30px;">
                             <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #1e293b;">Strategische Prioritäten</h2>
-                            <p style="color: #64748b; margin-bottom: 20px;">Welche Themen haben hohen Stellenwert für euch?</p>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">People & Culture Mindset</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">HR als strategischen Business-Partner positionieren</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'mindset', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'mindset', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'mindset', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'mindset', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'mindset', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Business Acumen</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Externe Markt- und Geschäftsfaktoren verstehen</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'business', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'business', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'business', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'business', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'business', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Employee Lifecycle / Experience Design</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Employee Experience entlang des gesamten Mitarbeiter-Lebenszyklus systematisch gestalten</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'employee_lifecycle', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'employee_lifecycle', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'employee_lifecycle', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'employee_lifecycle', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'employee_lifecycle', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Digital Product-, Project- & Process Management</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">HR-Prozesse und -Projekte professionell steuern und digitale Tools konsequent einsetzen</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'digital_management', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'digital_management', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'digital_management', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'digital_management', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'digital_management', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Data & Analytics Literacy</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">People-Entscheidungen datenbasiert treffen und HR-Daten für strategische Entscheidungen nutzen</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'data_analytics', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'data_analytics', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'data_analytics', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'data_analytics', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'data_analytics', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">People Strategy & Operating Model</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Klar definierte People-Strategie und zukunftsorientiertes HR Operating Model entwickeln</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'people_strategy', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'people_strategy', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'people_strategy', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'people_strategy', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'people_strategy', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">AI & Tech</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">KI und moderne HR-Tech-Tools verstehen und aktiv in den HR-Alltag integrieren</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'ai_tech', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'ai_tech', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'ai_tech', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'ai_tech', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'ai_tech', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
-                            </div>
+                            <p style="color: #64748b; margin-bottom: 20px;">Welche People & Culture Themen haben für die Unternehmensstrategie deiner Organisation in den nächsten 12 Monaten einen hohen Stellenwert?</p>
                         </div>
                     `;
+
+                    strategicPriorities.forEach(priority => {
+                        html += `
+                            <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px; transition: all 0.3s;">
+                                <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">${priority.title}</h3>
+                                <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">${priority.description}</p>
+                                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                    <span style="font-size: 0.875rem; color: #6b7280; min-width: 120px;">Kein Stellenwert</span>
+                                    <div style="display: flex; gap: 8px;">
+                                        ${[1,2,3,4,5].map(value => 
+                                            `<button onclick="selectRating(this, '${priority.key}', ${value})" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s; display: flex; align-items: center; justify-content: center;">${value}</button>`
+                                        ).join('')}
+                                    </div>
+                                    <span style="font-size: 0.875rem; color: #6b7280; min-width: 120px;">Sehr hoher Stellenwert</span>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    return html;
                 } else if (currentStep === 3) {
-                    return `
+                    const highPriorityFields = getHighPriorityFields();
+                    
+                    if (highPriorityFields.length === 0) {
+                        return `
+                            <div style="text-align: center; padding: 40px;">
+                                <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #1e293b;">Maturity Assessment</h2>
+                                <p style="color: #64748b; margin-bottom: 20px;">Keine Bereiche mit hoher Priorität (≥3) ausgewählt. Bitte gehe zurück und bewerte deine Prioritäten.</p>
+                            </div>
+                        `;
+                    }
+
+                    let html = `
                         <div style="text-align: center; margin-bottom: 30px;">
                             <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #1e293b;">Maturity Assessment</h2>
-                            <p style="color: #64748b; margin-bottom: 20px;">Wie schätzt ihr eure aktuelle Reife ein?</p>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">People & Culture Mindset</h3>
-                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Unser Team versteht sich als strategischer Business-Partner</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'maturity1', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'maturity1', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'maturity1', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'maturity1', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'maturity1', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Business Acumen</h3>
-                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Unser Team versteht externe Markt- und Geschäftsfaktoren und verknüpft People-Themen mit Unternehmenszielen</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'maturity_business', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'maturity_business', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'maturity_business', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'maturity_business', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'maturity_business', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Data & Analytics Literacy</h3>
-                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Wir treffen People-Entscheidungen datenbasiert und nutzen HR-Daten aktiv für strategische Entscheidungen</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'maturity_analytics', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'maturity_analytics', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'maturity_analytics', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'maturity_analytics', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'maturity_analytics', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">AI & Tech</h3>
-                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Wir verstehen KI-Potenziale für HR und nutzen moderne HR-Tech-Tools effektiv in der täglichen Arbeit</p>
-                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
-                                <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'maturity_ai', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'maturity_ai', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'maturity_ai', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'maturity_ai', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'maturity_ai', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
-                                </div>
-                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
-                            </div>
+                            <p style="color: #64748b; margin-bottom: 20px;">Bewerte eure aktuelle Reife in den priorisierten Bereichen</p>
                         </div>
                     `;
+
+                    highPriorityFields.forEach(field => {
+                        html += `
+                            <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                                <h3 style="font-weight: 700; margin-bottom: 15px; color: #1e293b; font-size: 1.1rem;">${field.title}</h3>
+                        `;
+
+                        maturityQuestions[field.key]?.forEach((question, index) => {
+                            html += `
+                                <div style="border-left: 4px solid #f59e0b; padding-left: 15px; margin-bottom: 20px;">
+                                    <p style="font-size: 0.9rem; color: #374151; margin-bottom: 10px; line-height: 1.5;">${question}</p>
+                                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                                        <span style="font-size: 0.75rem; color: #6b7280; min-width: 80px;">Trifft nicht zu</span>
+                                        <div style="display: flex; gap: 6px;">
+                                            ${[1,2,3,4,5].map(value => 
+                                                `<button onclick="selectMaturity(this, '${field.key}', ${index}, ${value})" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">${value}</button>`
+                                            ).join('')}
+                                        </div>
+                                        <span style="font-size: 0.75rem; color: #6b7280; min-width: 80px;">Trifft voll zu</span>
+                                        <button onclick="selectMaturity(this, '${field.key}', ${index}, 'unknown')" style="margin-left: 15px; padding: 4px 12px; font-size: 0.75rem; border-radius: 4px; border: 1px solid #d1d5db; background: white; cursor: pointer; transition: all 0.3s; color: #6b7280;">Weiß nicht</button>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        html += `</div>`;
+                    });
+
+                    return html;
                 } else {
+                    const scores = calculateScores();
                     return `
                         <div style="text-align: center;">
-                            <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 30px; color: #1e293b;">🎉 Deine Ergebnisse</h2>
+                            <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 30px; color: #1e293b;">🎉 Deine Assessment-Ergebnisse</h2>
+                            <p style="color: #64748b; margin-bottom: 30px;">Basierend auf deinen Angaben haben wir eine individuelle Analyse erstellt</p>
                             
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-                                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 30px;">
-                                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 15px;">Maturity Score</h3>
-                                    <div style="font-size: 3rem; font-weight: 900; margin-bottom: 8px;">+2.1</div>
-                                    <p style="font-size: 0.9rem; opacity: 0.9;">Eure People & Culture Reife</p>
+                                <div style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; border-radius: 16px; padding: 30px;">
+                                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 15px;">People & Culture Maturity Score</h3>
+                                    <div style="font-size: 3rem; font-weight: 900; margin-bottom: 8px;">${scores.maturityScore > 0 ? '+' : ''}${scores.maturityScore.toFixed(1)}</div>
+                                    <p style="font-size: 0.9rem; opacity: 0.9;">-5 bis +5 Skala</p>
+                                    <div style="margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                        <p style="font-size: 0.85rem; line-height: 1.4;">${scores.maturityDescription}</p>
+                                    </div>
                                 </div>
                                 
-                                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 30px;">
+                                <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border-radius: 16px; padding: 30px;">
                                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 15px;">AI-Risk Score</h3>
-                                    <div style="font-size: 3rem; font-weight: 900; margin-bottom: 8px;">${formData.repetitiveWork || 45}%</div>
+                                    <div style="font-size: 3rem; font-weight: 900; margin-bottom: 8px;">${Math.round(scores.aiRiskScore)}%</div>
                                     <p style="font-size: 0.9rem; opacity: 0.9;">Automatisierungsrisiko</p>
+                                    <div style="margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                        <p style="font-size: 0.85rem; line-height: 1.4;">${scores.aiRiskDescription}</p>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div style="margin-top: 30px; padding: 25px; background: #f8fafc; border-radius: 12px; text-align: left;">
-                                <h3 style="color: #1e293b; margin-bottom: 15px; font-size: 1.2rem;">💡 Empfehlungen für euch:</h3>
-                                <ul style="color: #64748b; line-height: 1.8; font-size: 1rem;">
-                                    <li style="margin-bottom: 8px;">Fokus auf strategische Partnerschaften mit dem Business</li>
-                                    <li style="margin-bottom: 8px;">Datengetriebene Entscheidungsfindung stärken</li>
-                                    <li style="margin-bottom: 8px;">KI-Tools für Effizienzsteigerung nutzen</li>
-                                    <li>Employee Experience systematisch optimieren</li>
-                                </ul>
+                            <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 25px;">
+                                <h2 style="font-size: 1.5rem; font-weight: bold; color: #1e293b; margin-bottom: 20px;">Top 3 Upskilling-Felder</h2>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                                    ${scores.topUpskillFields.slice(0, 3).map((field, index) => `
+                                        <div style="border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; transition: all 0.3s;">
+                                            <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 15px;">
+                                                <h3 style="font-size: 1.1rem; font-weight: 600; color: #1e293b; flex: 1;">${field.field}</h3>
+                                                <span style="background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Gap: ${field.gap.toFixed(1)}</span>
+                                            </div>
+                                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">${field.explanation}</p>
+                                            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 15px;">
+                                                <span style="color: #6b7280;">Priorität: <strong>${field.priority}/5</strong></span>
+                                                <span style="color: #6b7280;">Reife: <strong>${field.maturity.toFixed(1)}/5</strong></span>
+                                            </div>
+                                            <button onclick="window.open('https://cal.com/intracarsten/60-min-meeting', '_blank')" style="width: 100%; background: #f59e0b; color: #1e293b; padding: 10px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#f59e0b'" onmouseout="this.style.background='#f59e0b'">
+                                                📚 Coaching-Call buchen und Upskilling starten
+                                            </button>
+                                        </div>
+                                    `).join('')}
+                                </div>
                             </div>
                             
-                            <button onclick="window.open('https://cal.com/intracarsten/60-min-meeting', '_blank')" style="font-size: 1.1rem; padding: 15px 30px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 25px; transition: all 0.3s;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">
-                                🚀 Coaching-Call buchen und durchstarten
-                            </button>
+                            <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 25px;">
+                                <h2 style="font-size: 1.5rem; font-weight: bold; color: #1e293b; margin-bottom: 20px;">Detaillierte Analyse</h2>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                                    <div>
+                                        <h3 style="font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 15px;">💪 Stärken</h3>
+                                        <ul style="list-style: none; padding: 0;">
+                                            ${scores.strengths.map(strength => `
+                                                <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                                    <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; margin-top: 6px; margin-right: 12px; flex-shrink: 0;"></div>
+                                                    <span style="color: #374151; line-height: 1.5;">${strength}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h3 style="font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 15px;">🚀 Entwicklungspotenziale</h3>
+                                        <ul style="list-style: none; padding: 0;">
+                                            ${scores.improvements.map(improvement => `
+                                                <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                                    <div style="width: 8px; height: 8px; background: #f59e0b; border-radius: 50%; margin-top: 6px; margin-right: 12px; flex-shrink: 0;"></div>
+                                                    <span style="color: #374151; line-height: 1.5;">${improvement}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 25px; padding: 20px; background: #eff6ff; border-radius: 12px;">
+                                    <p style="color: #374151; line-height: 1.6; font-size: 1rem;">
+                                        ${scores.personalizedInsight}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                                <button onclick="downloadResults()" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: #1e293b; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#374151'" onmouseout="this.style.background='#1e293b'">
+                                    📄 Ergebnis als PDF sichern
+                                </button>
+                                
+                                <button onclick="restartAssessment()" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: #f3f4f6; color: #374151; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#e5e7eb'" onmouseout="this.style.background='#f3f4f6'">
+                                    🔄 Neues Assessment starten
+                                </button>
+                            </div>
                         </div>
                     `;
+                }
+            }
+
+            function getHighPriorityFields() {
+                return strategicPriorities.filter(field => 
+                    formData.priorities[field.key] >= 3
+                );
+            }
+
+            function calculateScores() {
+                // Calculate People & Culture Maturity Score (-5 to +5)
+                let totalGap = 0;
+                let fieldCount = 0;
+
+                Object.keys(formData.priorities).forEach(field => {
+                    const priority = formData.priorities[field];
+                    if (priority >= 3 && formData.maturity[field]) {
+                        const maturityValues = Object.values(formData.maturity[field]).filter(v => v !== 'unknown' && typeof v === 'number');
+                        if (maturityValues.length > 0) {
+                            const avgMaturity = maturityValues.reduce((sum, val) => sum + val, 0) / maturityValues.length;
+                            const gap = avgMaturity - priority;
+                            totalGap += gap;
+                            fieldCount++;
+                        }
+                    }
+                });
+
+                const maturityScore = fieldCount > 0 ? Math.max(-5, Math.min(5, totalGap / fieldCount)) : 0;
+
+                // Calculate AI Risk Score
+                let aiRiskScore = formData.repetitiveWork || 50;
+                if (formData.repetitiveWork > 30) {
+                    aiRiskScore = 70 + ((formData.repetitiveWork - 30) / 70) * 30;
+                } else {
+                    aiRiskScore = (formData.repetitiveWork / 30) * 69;
+                }
+
+                // Adjust based on team structure and mission
+                if (formData.teamMission && formData.teamMission.toLowerCase().includes('strategisch')) {
+                    aiRiskScore *= 0.8;
+                }
+                if (formData.teamStructure && formData.teamStructure.toLowerCase().includes('business partner')) {
+                    aiRiskScore *= 0.7;
+                }
+
+                aiRiskScore = Math.min(100, Math.max(0, aiRiskScore));
+
+                // Generate descriptions
+                let maturityDescription = "";
+                if (maturityScore >= 3) maturityDescription = "Exzellent! Euer Team zeigt eine sehr hohe Reife in den strategisch wichtigen Bereichen.";
+                else if (maturityScore >= 1) maturityDescription = "Gut! Ihr seid auf einem soliden Weg, habt aber noch Potenzial für Verbesserungen.";
+                else if (maturityScore >= -1) maturityDescription = "Ausgeglichen. Eure Reife entspricht etwa euren strategischen Prioritäten.";
+                else if (maturityScore >= -3) maturityDescription = "Entwicklungsbedarf. Es gibt deutliche Lücken zwischen euren Prioritäten und der aktuellen Reife.";
+                else maturityDescription = "Starke Herausforderungen. Hier besteht dringender Handlungsbedarf in mehreren kritischen Bereichen.";
+
+                const aiRiskDescription = aiRiskScore >= 70 ? 
+                    "Sehr hohes Automatisierungsrisiko. Viele eurer Tätigkeiten könnten durch KI ersetzt werden. Gleichzeitig bietet KI enormes Potenzial, eure Effizienz und Produktivität zu steigern." :
+                    "Geringes Automatisierungsrisiko. Eure Arbeit ist größtenteils strategisch und schwer automatisierbar. Dennoch kann KI eure Effizienz und Produktivität erheblich steigern.";
+
+                // Identify top upskilling fields
+                const topUpskillFields = [];
+                Object.keys(formData.priorities).forEach(field => {
+                    const priority = formData.priorities[field];
+                    if (priority >= 4 && formData.maturity[field]) {
+                        const maturityValues = Object.values(formData.maturity[field]).filter(v => v !== 'unknown' && typeof v === 'number');
+                        if (maturityValues.length > 0) {
+                            const avgMaturity = maturityValues.reduce((sum, val) => sum + val, 0) / maturityValues.length;
+                            const gap = priority - avgMaturity;
+                            
+                            const fieldTitle = strategicPriorities.find(p => p.key === field)?.title || field;
+                            
+                            topUpskillFields.push({
+                                field: fieldTitle,
+                                priority,
+                                maturity: avgMaturity,
+                                gap,
+                                explanation: generateGapExplanation(fieldTitle, priority, avgMaturity, gap)
+                            });
+                        }
+                    }
+                });
+
+                topUpskillFields.sort((a, b) => b.gap - a.gap);
+
+                // Generate strengths and improvements
+                const strengths = [
+                    'Ihr habt klare strategische Prioritäten für euer People & Culture Team definiert',
+                    'Euer Team zeigt eine hohe Bereitschaft zur systematischen Weiterentwicklung',
+                    'Die Teilnahme am Assessment zeigt euer Commitment für professionelle HR-Arbeit'
+                ];
+
+                const improvements = [
+                    'Entwickelt systematische Messung und Erfolgskontrolle für eure HR-Maßnahmen',
+                    'Baut das Stakeholder-Alignment für eure People & Culture Strategie aus',
+                    'Etabliert regelmäßige Feedback-Schleifen mit dem Management',
+                    'Investiert in datengetriebene Entscheidungsfindung',
+                    'Stärkt die interne Kommunikation eurer HR-Erfolge'
+                ];
+
+                // Generate personalized insight
+                const personalizedInsight = `Als ${formData.teamSize}-köpfiges People & Culture Team in einem ${formData.companySize} Mitarbeiter Unternehmen aus der ${formData.industry}-Branche ${
+                    maturityScore >= 2 ? 'seid ihr bereits sehr gut aufgestellt. Fokussiert euch jetzt darauf, eure Expertise zu vertiefen und als strategischer Partner noch sichtbarer zu werden.' :
+                    maturityScore >= 0 ? 'habt ihr eine solide Basis gelegt. Der nächste Schritt ist, systematischer zu werden und messbare Erfolge zu schaffen.' :
+                    'steht ihr vor spannenden Entwicklungsmöglichkeiten. Startet mit den Grundlagen in euren Top-Prioritäten und baut systematisch auf.'
+                }${aiRiskScore > 60 ? ' Gleichzeitig solltet ihr euch intensiv mit KI und Automatisierung beschäftigen, um zukunftsfähig zu bleiben.' : ''}`;
+
+                return {
+                    maturityScore,
+                    maturityDescription,
+                    aiRiskScore,
+                    aiRiskDescription,
+                    topUpskillFields,
+                    strengths,
+                    improvements,
+                    personalizedInsight
+                };
+            }
+
+            function generateGapExplanation(fieldTitle, priority, maturity, gap) {
+                const encouragements = [
+                    "Gut, dass ihr euch mit der Thematik auseinandersetzt!",
+                    "Ein wichtiges Thema für eure Organisation!",
+                    "Hier liegt großes Potenzial für euer Team!",
+                    "Ein strategisch wichtiger Bereich für euch!",
+                    "Perfekt, dass ihr hier den Fokus setzt!"
+                ];
+                
+                const gapDescriptions = [
+                    "eine klare Priorität!",
+                    "hier könnt ihr richtig durchstarten!",
+                    "ein Bereich mit viel Entwicklungspotenzial!",
+                    "hier wartet spannendes Upskilling auf euch!",
+                    "definitiv ein Fokusbereich für die nächsten Monate!"
+                ];
+                
+                const randomEncouragement = encouragements[Math.floor(Math.random() * encouragements.length)];
+                const randomGapDescription = gapDescriptions[Math.floor(Math.random() * gapDescriptions.length)];
+                
+                if (gap > 2) {
+                    return `${fieldTitle} hat hohe strategische Priorität (${priority}/5) für deine Organisation. ${randomEncouragement} Eure People & Culture Team Reife ist hier noch ausbaufähig (${maturity.toFixed(1)}/5) - ${randomGapDescription}`;
+                } else if (gap > 1) {
+                    return `${fieldTitle} ist strategisch wichtig (${priority}/5) für euch. ${randomEncouragement} Mit eurer aktuellen Reife von ${maturity.toFixed(1)}/5 habt ihr eine solide Basis, aber ${randomGapDescription}`;
+                } else {
+                    return `${fieldTitle} zeigt bei euch eine gute Balance zwischen Priorität (${priority}/5) und Reife (${maturity.toFixed(1)}/5). ${randomEncouragement} Hier könnt ihr gezielt die nächsten Schritte gehen.`;
                 }
             }
             
@@ -748,8 +848,77 @@
                 button.style.color = 'white';
                 
                 // Store value
-                if (!formData.ratings) formData.ratings = {};
-                formData.ratings[field] = value;
+                formData.priorities[field] = value;
+            };
+
+            window.selectMaturity = function(button, field, subskill, value) {
+                // Remove selection from siblings
+                const siblings = button.parentNode.querySelectorAll('button');
+                siblings.forEach(btn => {
+                    btn.style.background = 'white';
+                    btn.style.borderColor = '#d1d5db';
+                    btn.style.color = 'black';
+                });
+                
+                // Select clicked button
+                if (value !== 'unknown') {
+                    button.style.background = '#6366f1';
+                    button.style.borderColor = '#6366f1';
+                    button.style.color = 'white';
+                } else {
+                    button.style.background = '#6b7280';
+                    button.style.borderColor = '#6b7280';
+                    button.style.color = 'white';
+                }
+                
+                // Store value
+                if (!formData.maturity[field]) {
+                    formData.maturity[field] = {};
+                }
+                formData.maturity[field][subskill] = value;
+            };
+
+            window.downloadResults = function() {
+                const scores = calculateScores();
+                const pdfContent = `
+PACED - People and Culture Education
+Assessment Ergebnisse
+
+People & Culture Maturity Score: ${scores.maturityScore > 0 ? '+' : ''}${scores.maturityScore.toFixed(1)}
+AI-Risk Score: ${Math.round(scores.aiRiskScore)}%
+
+Top 3 Upskilling-Felder:
+${scores.topUpskillFields.slice(0, 3).map((field, index) => 
+  `${index + 1}. ${field.field} (Gap: ${field.gap.toFixed(1)})`
+).join('\n')}
+
+Für eine detaillierte Beratung: https://cal.com/intracarsten/60-min-meeting
+                `;
+                
+                const blob = new Blob([pdfContent], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'PACED-Assessment-Ergebnisse.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            };
+
+            window.restartAssessment = function() {
+                currentStep = 1;
+                formData = {
+                    companySize: '',
+                    industry: '',
+                    teamSize: '',
+                    teamMission: '',
+                    teamStructure: '',
+                    repetitiveWork: 50,
+                    priorities: {},
+                    maturity: {}
+                };
+                renderWidget();
             };
         });
     </script>
