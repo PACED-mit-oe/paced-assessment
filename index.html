@@ -57,60 +57,12 @@
         }
 
         /* Modal styles */
-        #assessment-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            overflow-y: auto;
-            display: none;
-        }
-
-        /* Button styles */
-        #open-assessment {
-            background: #30099F;
-            color: white;
-            border: none;
-            padding: 18px 36px;
+        .assessment-widget {
+            background: white;
             border-radius: 12px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            text-transform: none;
-        }
-
-        #open-assessment:hover {
-            background: #2507A0;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        #close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #f3f4f6;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            color: #666;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        #close-modal:hover {
-            background: #e5e7eb;
-            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            margin: 20px 0;
         }
 
         /* Footer */
@@ -142,22 +94,8 @@
         <h1>🚀 PACED Assessment</h1>
         <p>Bewerte die Reife deines People & Culture Teams mit unserem wissenschaftlich fundierten Assessment Tool. Nimm dir 15 Minuten Zeit, um deine größten Upskilling-Bedarfe zu erkennen.</p>
         
-        <div id="paced-assessment-container">
-            <div style="text-align: center; padding: 20px;">
-                <button id="open-assessment">
-                    PACED Assessment starten
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Container -->
-    <div id="assessment-modal">
-        <div style="max-width: 900px; margin: 20px auto; background: white; border-radius: 12px; position: relative; min-height: calc(100vh - 40px);">
-            <button id="close-modal">×</button>
-            <div id="paced-assessment-content" style="padding: 40px;">
-                <!-- Assessment will load here -->
-            </div>
+        <div id="paced-assessment-container" style="max-width: 1000px; margin: 0 auto; padding: 20px; min-height: 800px; height: auto; overflow: visible; position: relative; z-index: 1; background: transparent;">
+            <!-- Assessment wird hier direkt geladen -->
         </div>
     </div>
 
@@ -335,10 +273,7 @@
 
         // PACED Assessment Modal Widget
         document.addEventListener('DOMContentLoaded', function() {
-            const openBtn = document.getElementById('open-assessment');
-            const modal = document.getElementById('assessment-modal');
-            const closeBtn = document.getElementById('close-modal');
-            const container = document.getElementById('paced-assessment-content');
+            const container = document.getElementById('paced-assessment-container');
             
             let currentStep = 1;
             let isInitialized = false;
@@ -350,41 +285,14 @@
                 teamStructure: '',
                 repetitiveWork: 50,
                 priorities: {},
-                maturity: {}
             };
             
-            // Open modal
-            openBtn.addEventListener('click', function() {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                
-                if (!isInitialized) {
-                    initAssessment();
-                    isInitialized = true;
-                }
-            });
-            
-            // Close modal
-            closeBtn.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close on background click
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            function initAssessment() {
-                renderWidget();
-            }
+            // Assessment direkt starten
+            renderWidget();
             
             function renderWidget() {
                 container.innerHTML = `
-                    <div style="font-family: Arial, sans-serif;">
+                    <div class="assessment-widget" style="font-family: Arial, sans-serif;">
                         
                         <!-- Step Indicator -->
                         <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 30px;">
