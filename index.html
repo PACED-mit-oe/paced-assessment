@@ -18,7 +18,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #30099F 0%, #4A1BA8 100%);
             min-height: 100vh;
         }
 
@@ -71,7 +71,7 @@
 
         /* Button styles */
         #open-assessment {
-            background: #6366f1;
+            background: #30099F;
             color: white;
             border: none;
             padding: 18px 36px;
@@ -85,7 +85,7 @@
         }
 
         #open-assessment:hover {
-            background: #4f46e5;
+            background: #2507A0;
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
         }
@@ -388,11 +388,11 @@
                         
                         <!-- Step Indicator -->
                         <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 30px;">
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: ${currentStep >= 1 ? '#6366f1' : '#e5e7eb'}; color: ${currentStep >= 1 ? 'white' : '#9ca3af'}; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
-                            <div style="width: 60px; height: 2px; background: ${currentStep > 1 ? '#6366f1' : '#e5e7eb'}; margin: 0 8px;"></div>
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: ${currentStep >= 2 ? '#6366f1' : '#e5e7eb'}; color: ${currentStep >= 2 ? 'white' : '#9ca3af'}; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
-                            <div style="width: 60px; height: 2px; background: ${currentStep > 2 ? '#6366f1' : '#e5e7eb'}; margin: 0 8px;"></div>
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: ${currentStep >= 3 ? '#6366f1' : '#e5e7eb'}; color: ${currentStep >= 3 ? 'white' : '#9ca3af'}; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: ${currentStep >= 1 ? '#30099F' : '#e5e7eb'}; color: ${currentStep >= 1 ? 'white' : '#9ca3af'}; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                            <div style="width: 60px; height: 2px; background: ${currentStep > 1 ? '#30099F' : '#e5e7eb'}; margin: 0 8px;"></div>
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: ${currentStep >= 2 ? '#30099F' : '#e5e7eb'}; color: ${currentStep >= 2 ? 'white' : '#9ca3af'}; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                            <div style="width: 60px; height: 2px; background: ${currentStep > 2 ? '#30099F' : '#e5e7eb'}; margin: 0 8px;"></div>
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: ${currentStep >= 3 ? '#30099F' : '#e5e7eb'}; color: ${currentStep >= 3 ? 'white' : '#9ca3af'}; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
                         </div>
 
                         <!-- Content -->
@@ -403,7 +403,7 @@
                         <!-- Navigation -->
                         <div style="display: flex; justify-content: space-between; padding-top: 20px; border-top: 2px solid #e5e7eb;">
                             <button onclick="previousStep()" ${currentStep === 1 ? 'disabled' : ''} style="padding: 12px 24px; background: ${currentStep === 1 ? '#f3f4f6' : '#f3f4f6'}; color: #374151; border: none; border-radius: 8px; cursor: ${currentStep === 1 ? 'not-allowed' : 'pointer'}; font-weight: 600; opacity: ${currentStep === 1 ? '0.5' : '1'};">← Zurück</button>
-                            <button onclick="nextStep()" style="padding: 12px 24px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">${currentStep === 3 ? 'Assessment abschließen' : 'Weiter →'}</button>
+                            <button onclick="nextStep()" style="padding: 12px 24px; background: #30099F; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">${currentStep === 4 ? 'Assessment abschließen' : 'Weiter →'}</button>
                         </div>
                     </div>
                 `;
@@ -411,6 +411,30 @@
             
             function getStepContent() {
                 if (currentStep === 1) {
+                    return `
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #1e293b;">Kontaktdaten</h2>
+                            <p style="color: #64748b; margin-bottom: 20px;">Damit wir dir deine Ergebnisse zusenden können</p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                            <div>
+                                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Vorname & Nachname *</label>
+                                <input type="text" id="fullName" placeholder="Max Mustermann" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">E-Mail Adresse *</label>
+                                <input type="email" id="email" placeholder="max@unternehmen.de" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Position / Rolle *</label>
+                            <input type="text" id="position" placeholder="Head of People & Culture" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+                        </div>
+                    `;
+                } else if (currentStep === 2) {
                     return `
                         <div style="text-align: center; margin-bottom: 30px;">
                             <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #1e293b;">Basis & Facts</h2>
@@ -485,7 +509,7 @@
                             <input type="range" min="0" max="100" value="50" style="width: 100%; height: 8px; background: #e5e7eb; border-radius: 4px; cursor: pointer;" onchange="document.getElementById('slider-value').textContent = this.value; formData.repetitiveWork = this.value;">
                             <div style="display: flex; justify-content: space-between; font-size: 12px; color: #6b7280; margin-top: 5px;">
                                 <span>0%</span>
-                                <span>50%</span>
+                } else if (currentStep === 3) {
                                 <span>100%</span>
                             </div>
                         </div>
@@ -512,6 +536,22 @@
                                     </div>
                                     <span style="font-size: 0.875rem; color: #6b7280; min-width: 120px;">Sehr hoher Stellenwert</span>
                                 </div>
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Employee Lifecycle / Experience Design</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Employee Experience systematisch gestalten</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
+                            </div>
+                        </div>
+                        
                             </div>
                         `;
                     });
@@ -527,8 +567,24 @@
                                 <p style="color: #64748b; margin-bottom: 20px;">Keine Bereiche mit hoher Priorität (≥3) ausgewählt. Bitte gehe zurück und bewerte deine Prioritäten.</p>
                             </div>
                         `;
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">AI & Tech</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">KI und HR-Tech-Tools aktiv nutzen</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'ai_tech', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
+                            </div>
+                        </div>
                     }
-
+                } else if (currentStep === 4) {
                     let html = `
                         <div style="text-align: center; margin-bottom: 30px;">
                             <h2 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #1e293b;">Maturity Assessment</h2>
@@ -575,13 +631,13 @@
                                 <div style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; border-radius: 16px; padding: 30px;">
                                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 15px;">People & Culture Maturity Score</h3>
                                     <div style="font-size: 3rem; font-weight: 900; margin-bottom: 8px;">${scores.maturityScore > 0 ? '+' : ''}${scores.maturityScore.toFixed(1)}</div>
-                                    <p style="font-size: 0.9rem; opacity: 0.9;">-5 bis +5 Skala</p>
+                                <div style="background: linear-gradient(135deg, #6AE2A6 0%, #4CAF50 100%); color: white; border-radius: 16px; padding: 30px;">
                                     <div style="margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.1); border-radius: 8px;">
                                         <p style="font-size: 0.85rem; line-height: 1.4;">${scores.maturityDescription}</p>
                                     </div>
                                 </div>
                                 
-                                <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border-radius: 16px; padding: 30px;">
+                                <div style="background: linear-gradient(135deg, #F6585B 0%, #E53E3E 100%); color: white; border-radius: 16px; padding: 30px;">
                                     <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 15px;">AI-Risk Score</h3>
                                     <div style="font-size: 3rem; font-weight: 900; margin-bottom: 8px;">${Math.round(scores.aiRiskScore)}%</div>
                                     <p style="font-size: 0.9rem; opacity: 0.9;">Automatisierungsrisiko</p>
@@ -645,6 +701,22 @@
                                 <div style="margin-top: 25px; padding: 20px; background: #eff6ff; border-radius: 12px;">
                                     <p style="color: #374151; line-height: 1.6; font-size: 1rem;">
                                         ${scores.personalizedInsight}
+                            <!-- Carsten's Quote Section -->
+                            <div style="margin: 30px 0; padding: 25px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #30099F;">
+                                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+                                    <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face" 
+                                         alt="Carsten Schermuly" 
+                                         style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #30099F;">
+                                    <div style="text-align: left;">
+                                        <h4 style="color: #1e293b; margin: 0; font-size: 1.1rem; font-weight: 700;">Carsten Schermuly</h4>
+                                        <p style="color: #64748b; margin: 5px 0 0 0; font-size: 0.9rem;">Founder, PACED - People and Culture Education</p>
+                                    </div>
+                                </div>
+                                <blockquote style="font-style: italic; color: #374151; font-size: 1rem; line-height: 1.6; margin: 0;">
+                                    "Die Zukunft von HR liegt in der strategischen Partnerschaft mit dem Business. Teams, die heute in Data Analytics, AI und Employee Experience investieren, werden morgen die Gewinner sein. Euer Assessment zeigt: Ihr seid auf dem richtigen Weg!"
+                                </blockquote>
+                            </div>
+                            
                                     </p>
                                 </div>
                             </div>
@@ -655,7 +727,7 @@
                                 </button>
                                 
                                 <button onclick="restartAssessment()" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: #f3f4f6; color: #374151; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#e5e7eb'" onmouseout="this.style.background='#f3f4f6'">
-                                    🔄 Neues Assessment starten
+                            <button onclick="window.open('https://cal.com/intracarsten/60-min-meeting', '_blank')" style="font-size: 1.1rem; padding: 15px 30px; background: #30099F; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 25px; transition: all 0.3s;" onmouseover="this.style.background='#2507A0'" onmouseout="this.style.background='#30099F'">
                                 </button>
                             </div>
                         </div>
@@ -811,17 +883,24 @@
             window.nextStep = function() {
                 // Save form data from current step
                 if (currentStep === 1) {
+                    formData.fullName = document.getElementById('fullName')?.value || '';
+                    formData.email = document.getElementById('email')?.value || '';
+                    formData.position = document.getElementById('position')?.value || '';
+                }
+                
+                if (currentStep === 2) {
                     formData.companySize = document.getElementById('companySize')?.value || '';
                     formData.industry = document.getElementById('industry')?.value || '';
                     formData.teamSize = document.getElementById('teamSize')?.value || '';
                     formData.teamMission = document.getElementById('teamMission')?.value || '';
                     formData.teamStructure = document.getElementById('teamStructure')?.value || '';
+                    formData.teamStructure = document.getElementById('teamStructure')?.value || '';
                 }
                 
-                if (currentStep < 3) {
+                if (currentStep < 4) {
                     currentStep++;
                 } else {
-                    currentStep = 4; // Results
+                    currentStep = 5; // Results
                 }
                 renderWidget();
             };
@@ -843,8 +922,8 @@
                 });
                 
                 // Select clicked button
-                button.style.background = '#6366f1';
-                button.style.borderColor = '#6366f1';
+                button.style.background = '#30099F';
+                button.style.borderColor = '#30099F';
                 button.style.color = 'white';
                 
                 // Store value
