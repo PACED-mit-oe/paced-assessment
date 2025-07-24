@@ -471,6 +471,11 @@
                         </div>
                         
                         <div style="margin-bottom: 25px;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Operating Model / Struktur eures People & Culture Teams</label>
+                            <textarea id="teamStructure" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; height: 100px; resize: vertical; box-sizing: border-box;" placeholder="z.B. Wir arbeiten in einem hybriden Modell mit dedizierten Business Partnern..."></textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px;">
                             <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Anteil operativer Tätigkeiten: <span id="slider-value">50</span>%</label>
                             <input type="range" min="0" max="100" value="50" style="width: 100%; height: 8px; background: #e5e7eb; border-radius: 4px; cursor: pointer;" onchange="document.getElementById('slider-value').textContent = this.value; formData.repetitiveWork = this.value;">
                         </div>
@@ -515,16 +520,80 @@
                         </div>
                         
                         <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Data & Analytics</h3>
-                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Datenbasierte People-Entscheidungen treffen</p>
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Employee Lifecycle / Experience Design</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Employee Experience entlang des gesamten Mitarbeiter-Lebenszyklus systematisch gestalten</p>
                             <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
                                 <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
                                 <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'analytics', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'analytics', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'analytics', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'analytics', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'analytics', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'employee_lifecycle', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Digital Product-, Project- & Process Management</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">HR-Prozesse und -Projekte professionell steuern und digitale Tools konsequent einsetzen</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'digital_management', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'digital_management', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'digital_management', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'digital_management', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'digital_management', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Data & Analytics Literacy</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">People-Entscheidungen datenbasiert treffen und HR-Daten für strategische Entscheidungen nutzen</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'data_analytics', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'data_analytics', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'data_analytics', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'data_analytics', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'data_analytics', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">People Strategy & Operating Model</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">Klar definierte People-Strategie und zukunftsorientiertes HR Operating Model entwickeln</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'people_strategy', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'people_strategy', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'people_strategy', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'people_strategy', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'people_strategy', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">AI & Tech</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px; line-height: 1.5;">KI und moderne HR-Tech-Tools verstehen und aktiv in den HR-Alltag integrieren</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Niedrig</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'ai_tech', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'ai_tech', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
                                 </div>
                                 <span style="font-size: 0.875rem; color: #6b7280; min-width: 80px;">Sehr hoch</span>
                             </div>
@@ -554,16 +623,48 @@
                         </div>
                         
                         <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Data & Analytics</h3>
-                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Wir treffen People-Entscheidungen datenbasiert</p>
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Business Acumen</h3>
+                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Unser Team versteht externe Markt- und Geschäftsfaktoren und verknüpft People-Themen mit Unternehmenszielen</p>
                             <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
                                 <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
                                 <div style="display: flex; gap: 8px;">
-                                    <button onclick="selectRating(this, 'maturity2', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
-                                    <button onclick="selectRating(this, 'maturity2', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
-                                    <button onclick="selectRating(this, 'maturity2', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
-                                    <button onclick="selectRating(this, 'maturity2', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
-                                    <button onclick="selectRating(this, 'maturity2', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                    <button onclick="selectRating(this, 'maturity_business', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'maturity_business', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'maturity_business', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'maturity_business', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'maturity_business', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">Data & Analytics Literacy</h3>
+                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Wir treffen People-Entscheidungen datenbasiert und nutzen HR-Daten aktiv für strategische Entscheidungen</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'maturity_analytics', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'maturity_analytics', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'maturity_analytics', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'maturity_analytics', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'maturity_analytics', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
+                                </div>
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                            <h3 style="font-weight: 700; margin-bottom: 8px; color: #1e293b; font-size: 1.1rem;">AI & Tech</h3>
+                            <p style="font-size: 0.9rem; color: #374151; margin-bottom: 15px; line-height: 1.5;">Wir verstehen KI-Potenziale für HR und nutzen moderne HR-Tech-Tools effektiv in der täglichen Arbeit</p>
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft nicht zu</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="selectRating(this, 'maturity_ai', 1)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">1</button>
+                                    <button onclick="selectRating(this, 'maturity_ai', 2)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">2</button>
+                                    <button onclick="selectRating(this, 'maturity_ai', 3)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">3</button>
+                                    <button onclick="selectRating(this, 'maturity_ai', 4)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">4</button>
+                                    <button onclick="selectRating(this, 'maturity_ai', 5)" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #d1d5db; background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">5</button>
                                 </div>
                                 <span style="font-size: 0.875rem; color: #6b7280; min-width: 100px;">Trifft voll zu</span>
                             </div>
@@ -614,6 +715,7 @@
                     formData.industry = document.getElementById('industry')?.value || '';
                     formData.teamSize = document.getElementById('teamSize')?.value || '';
                     formData.teamMission = document.getElementById('teamMission')?.value || '';
+                    formData.teamStructure = document.getElementById('teamStructure')?.value || '';
                 }
                 
                 if (currentStep < 3) {
